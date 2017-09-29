@@ -28,6 +28,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
 
+        //TODO: Check that username and password are correct
+
+        //Navigate to Main activity and stop the login activity
         startActivity(mainActivityIntent);
         this.finish();
     }
