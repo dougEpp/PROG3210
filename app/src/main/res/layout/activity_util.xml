@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.depp1715.prog3210.UtilActivity">
+
+
+    <EditText
+        android:id="@+id/txtTextToManipulate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/text_manip"
+        android:inputType="text"
+        android:layout_marginTop="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="97dp"
+        android:layout_marginStart="97dp" />
+
+    <Button
+        android:id="@+id/btnReverseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/manipulate"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="198dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/radioManipulationGroup"
+        android:layout_alignLeft="@+id/txtTextToManipulate"
+        android:layout_alignStart="@+id/txtTextToManipulate" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTextToManipulate"
+        android:layout_alignLeft="@+id/btnReverseText"
+        android:layout_alignStart="@+id/btnReverseText"
+        android:layout_marginTop="12dp"
+        android:id="@+id/radioManipulationGroup">
+
+        <RadioButton
+            android:id="@+id/radioReverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reverse"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/radioAlphabetize"
+            android:layout_alignStart="@+id/radioAlphabetize" />
+        <RadioButton
+            android:id="@+id/radioAlphabetize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/alphabetize"
+            android:layout_below="@+id/radioGroup"
+            android:layout_alignLeft="@+id/radioGroup"
+            android:layout_alignStart="@+id/radioGroup" />
+    </RadioGroup>
+
+    </RelativeLayout>

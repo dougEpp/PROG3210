@@ -7,4 +7,12 @@
     <string name="password">Password</string>
     <string name="user_name">User Name</string>
     <string name="login">Login</string>
+    <string name="stored_username">doug</string>
+    <string name="stored_password">pass</string>
+    <string name="login_incorrect">Incorrect username or password</string>
+    <string name="title_activity_util">UtilActivity</string>
+    <string name="text_manip">Text to manipulate</string>
+    <string name="reverse">Reverse!</string>
+    <string name="alphabetize">Alphabetize!</string>
+    <string name="manipulate">Manipulate!</string>
 </resources>
