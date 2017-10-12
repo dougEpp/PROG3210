@@ -26,8 +26,7 @@
         android:text="@string/manipulate"
         tools:layout_editor_absoluteX="84dp"
         tools:layout_editor_absoluteY="198dp"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/radioManipulationGroup"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/txtTextToManipulate"
         android:layout_alignStart="@+id/txtTextToManipulate" />
     <RadioGroup
@@ -58,4 +57,14 @@
             android:layout_alignStart="@+id/radioGroup" />
     </RadioGroup>
 
-    </RelativeLayout>
+    <CheckBox
+        android:id="@+id/chkCapitalize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnReverseText"
+        android:layout_alignStart="@+id/btnReverseText"
+        android:layout_below="@+id/radioManipulationGroup"
+        android:layout_marginTop="19dp"
+        android:text="@string/capitalize" />
+
+</RelativeLayout>
