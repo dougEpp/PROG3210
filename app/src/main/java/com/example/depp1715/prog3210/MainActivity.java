@@ -25,9 +25,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Toast.makeText(MainActivity.this, "" + i,
-                    Toast.LENGTH_SHORT).show();
-        Intent utilActivityIntent = new Intent(this, UtilActivity.class);
-        startActivity(utilActivityIntent);
+        Intent activityIntent;
+        switch (i){
+            case 0:
+                activityIntent = new Intent(this, UtilActivity.class);
+                break;
+            default:
+                Toast.makeText(MainActivity.this, "Activity " + i + " not implemented",
+                        Toast.LENGTH_SHORT).show();
+                return;
+        }
+        startActivity(activityIntent);
     }
 }
