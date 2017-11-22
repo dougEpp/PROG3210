@@ -9,15 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.security.NoSuchAlgorithmException;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText txtUserName;
     private EditText txtPassword;
     private Button btnSubmit;
+    private User uDoug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        uDoug = new User("doug", "pass");
 
         txtUserName = (EditText) findViewById(R.id.txtUserName);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -33,7 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String userName = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();
 
-        if (userName.equals(getString(R.string.stored_username)) && password.equals(getString(R.string.stored_password))){
+//        if (userName.equals(getString(R.string.stored_username)) && password.equals(getString(R.string.stored_password))){
+        if (uDoug.LoginUser(userName, password)){
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);
             this.finish();
