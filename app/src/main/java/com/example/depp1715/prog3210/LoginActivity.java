@@ -38,7 +38,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String userName = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();
 
-//        if (userName.equals(getString(R.string.stored_username)) && password.equals(getString(R.string.stored_password))){
         if (uDoug.LoginUser(userName, password)){
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);

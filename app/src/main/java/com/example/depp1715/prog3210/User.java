@@ -19,18 +19,19 @@ public class User {
     private String password;
 
     public User(String username, String password) {
-        MessageDigest digest = null;
-        try {
-            digest = MessageDigest.getInstance("SHA-256");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        byte[] encodedPassword = digest.digest(
-                password.getBytes(StandardCharsets.UTF_8));
+            MessageDigest digest = null;
+            try {
+                digest = MessageDigest.getInstance("SHA-256");
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            byte[] encodedPassword = digest.digest(
+                    password.getBytes(StandardCharsets.UTF_8));
 
-        this.username = username;
-        this.password = bytesToHex(encodedPassword);
-    }
+            this.username = username;
+            this.password = bytesToHex(encodedPassword);
+        }
+
     public Boolean LoginUser(String username, String password) {
         MessageDigest digest = null;
         try {
