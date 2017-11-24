@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        uDoug = new User("doug", "pass");
+        uDoug = new User(1, "doug", "pass");
 
         txtUserName = (EditText) findViewById(R.id.txtUserName);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -38,7 +38,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String userName = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();
 
-        if (uDoug.LoginUser(userName, password)){
+        int memberId = uDoug.LoginUser(userName, password);
+
+
+        if (memberId != -1){
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);
             this.finish();

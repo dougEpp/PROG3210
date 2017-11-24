@@ -1,5 +1,7 @@
 package com.example.depp1715.prog3210;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.app.Notification;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -11,28 +13,14 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by depp1715 on 11/22/2017.
  */
-
+@Entity
 public class User {
-
-    private int id;
+    @PrimaryKey
+    public final int id;
     private String username;
     private String password;
 
-    public User(String username, String password) {
-            MessageDigest digest = null;
-            try {
-                digest = MessageDigest.getInstance("SHA-256");
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-            byte[] encodedPassword = digest.digest(
-                    password.getBytes(StandardCharsets.UTF_8));
-
-            this.username = username;
-            this.password = bytesToHex(encodedPassword);
-        }
-
-    public Boolean LoginUser(String username, String password) {
+    public User(int id, String username, String password) {
         MessageDigest digest = null;
         try {
             digest = MessageDigest.getInstance("SHA-256");
@@ -42,8 +30,25 @@ public class User {
         byte[] encodedPassword = digest.digest(
                 password.getBytes(StandardCharsets.UTF_8));
 
-        return this.username.equals(username) && this.password.equals(bytesToHex(encodedPassword));
+        this.id = id;
+        this.username = username;
+        this.password = bytesToHex(encodedPassword);
+    }
 
+    public int LoginUser(String username, String password) {
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        byte[] encodedPassword = digest.digest(
+                password.getBytes(StandardCharsets.UTF_8));
+
+        if (this.username.equals(username) && this.password.equals(bytesToHex(encodedPassword))) {
+            return this.id;
+        }
+        return -1;
     }
 
     //src: http://www.baeldung.com/sha-256-hashing-java

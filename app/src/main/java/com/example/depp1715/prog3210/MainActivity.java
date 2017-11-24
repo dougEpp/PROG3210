@@ -1,6 +1,8 @@
 package com.example.depp1715.prog3210;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,13 +17,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int numColumns;
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            numColumns = 3;
+        } else {
+            numColumns = 5;
+        }
 
         GridView gridview = (GridView) findViewById(R.id.toolboxGridview);
         gridview.setAdapter(new ImageAdapter(this));
+        gridview.setNumColumns(numColumns);
 
         gridview.setOnItemClickListener(this);
     }
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
