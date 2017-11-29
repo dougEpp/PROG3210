@@ -23,11 +23,14 @@ public interface UserDAO {
     public List<User> getAllUser();
 
     @Query("select * from user where id = :userId")
-    public List<User> getUser(long userId);
+    public User getUser(long userId);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateUser(User user);
 
     @Query("delete from user")
     void removeAllUsers();
+
+    @Query("select id from user where username = :username and password = :password")
+    public int loginUser(String username, String password);
 }

@@ -8,21 +8,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText txtUserName;
     private EditText txtPassword;
     private Button btnSubmit;
-    private User uDoug;
+    private User user;
+    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        database = AppDatabase.getDatabase(getApplicationContext());
 
-        uDoug = new User(1, "doug", "pass");
+        // cleanup for testing some initial data
+        //database.userDao().removeAllUsers();
+        // add some data
+        List<User> users = database.userDao().getAllUser();
+        if (users.size()==0) {
+            database.userDao().addUser(new User(1, "doug", "password"));
+            database.userDao().addUser(new User(2, "notDoug", "initial"));
+            database.userDao().addUser(new User(3, "Test 3", "initial"));
+        }
 
         txtUserName = (EditText) findViewById(R.id.txtUserName);
         txtPassword = (EditText) findViewById(R.id.txtPassword);
@@ -35,13 +44,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
 
-        String userName = txtUserName.getText().toString();
+        String username = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();
 
-        int memberId = uDoug.LoginUser(userName, password);
-
-
-        if (memberId != -1){
+        int memberId = database.userDao().loginUser(username, password);
+        if (memberId != 0){
+            user = database.userDao().getUser(memberId);
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);
             this.finish();
