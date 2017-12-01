@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 
-public class UtilActivity extends AppCompatActivity implements View.OnClickListener {
+public class TextManipActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText txtTextToManipulate;
     private Button btnManipulateText;
@@ -50,7 +50,7 @@ public class UtilActivity extends AppCompatActivity implements View.OnClickListe
             message = message.toUpperCase();
         }
 
-        Toast toast = Toast.makeText(UtilActivity.this, message, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(TextManipActivity.this, message, Toast.LENGTH_SHORT);
         toast.show();
     }
 }
