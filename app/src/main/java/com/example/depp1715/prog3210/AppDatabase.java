@@ -9,22 +9,20 @@ import android.content.Context;
  * Created by depp1715 on 11/24/2017.
  */
 
-@Database(entities = {User.class, Note.class
-}, version = 19, exportSchema = false)
+@Database(entities = {User.class, Note.class, LoginLog.class
+}, version = 20, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
     public abstract UserDAO userDao();
     public abstract NoteDAO noteDao();
+    public abstract LoginLogDAO loginLogDao();
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE =
                     Room.databaseBuilder(context, AppDatabase.class, "userdatabase")
-//Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class)
-                            // To simplify the exercise, allow queries on the main thread.
-                            // Don't do this on a real app!
                             .allowMainThreadQueries()
                             // recreate the database if necessary
                             .fallbackToDestructiveMigration()

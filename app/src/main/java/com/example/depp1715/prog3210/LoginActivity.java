@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,6 +67,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (memberId != 0){
             user = database.userDao().getUser(memberId);
             session.createUserLoginSession(user);
+
+            DateFormat df = new SimpleDateFormat("yyyyMMdd HHmmss");
+            Date now = Calendar.getInstance().getTime();
+            String dateString = df.format(now);
+            if (dateString != null){
+                LoginLog login = new LoginLog(dateString, user.id);
+                database.loginLogDao().addLogin(login);
+            }
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);
             this.finish();

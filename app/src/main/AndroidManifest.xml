@@ -28,7 +28,9 @@
         <activity
             android:name=".NoteActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".NotesListActivity"></activity>
+        <activity android:name=".NotesListActivity" />
+        <activity android:name=".TipCalcActivity" />
+        <activity android:name=".LoginListActivity"></activity>
     </application>
 
 </manifest>

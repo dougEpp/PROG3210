@@ -52,7 +52,7 @@ public class ImageAdapter extends BaseAdapter {
 
     private Integer[] mThumbIds = {
             R.drawable.text_manip_icon, R.drawable.notes_icon, R.drawable.notes_list_icon,
-            R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_7,
+            R.drawable.tip_calc_icon, R.drawable.logins_icon, R.drawable.sample_7,
             R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5, R.drawable.sample_6,
             R.drawable.sample_7, R.drawable.sample_1, R.drawable.sample_2,

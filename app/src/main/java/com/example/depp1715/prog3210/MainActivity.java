@@ -52,6 +52,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 2:
                 activityIntent = new Intent(this, NotesListActivity.class);
                 break;
+            case 3:
+                activityIntent = new Intent(this, TipCalcActivity.class);
+                break;
+            case 4:
+                activityIntent = new Intent(this, LoginListActivity.class);
+                break;
             default:
                 Toast.makeText(MainActivity.this, "Activity " + i + " not implemented",
                         Toast.LENGTH_SHORT).show();
@@ -63,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onClick(View v) {
         Intent loginRedirect = new Intent(this, LoginActivity.class);
+        loginRedirect.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
         session.logoutUser();
         startActivity(loginRedirect);
         this.finish();
