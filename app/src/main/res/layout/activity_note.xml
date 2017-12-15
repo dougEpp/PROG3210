@@ -3,19 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.depp1715.prog3210.MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context="com.example.depp1715.prog3210.NoteActivity">
 
-    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/toolboxGridview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="0dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/txtNoteText"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/note_text_hint"
+        android:inputType="textMultiLine" />
+
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
@@ -24,11 +26,11 @@
         android:background="@color/colorPrimary">
 
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnSaveNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:text="@string/logout" />
+            android:text="@string/note_save" />
     </RelativeLayout>
 </RelativeLayout>

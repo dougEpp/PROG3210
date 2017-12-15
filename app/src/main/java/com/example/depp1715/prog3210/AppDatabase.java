@@ -9,13 +9,14 @@ import android.content.Context;
  * Created by depp1715 on 11/24/2017.
  */
 
-@Database(entities = {User.class
-}, version = 16, exportSchema = false)
+@Database(entities = {User.class, Note.class
+}, version = 19, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
     public abstract UserDAO userDao();
+    public abstract NoteDAO noteDao();
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {

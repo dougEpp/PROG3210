@@ -7,8 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.example.depp1715.prog3210.R;
-
 /**
  * Created by depp1715 on 10/4/2017.
  */
@@ -53,7 +51,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     private Integer[] mThumbIds = {
-            R.drawable.sample_0, R.drawable.sample_3, R.drawable.sample_4,
+            R.drawable.text_manip_icon, R.drawable.notes_icon, R.drawable.notes_list_icon,
             R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_7,
             R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3,
             R.drawable.sample_4, R.drawable.sample_5, R.drawable.sample_6,

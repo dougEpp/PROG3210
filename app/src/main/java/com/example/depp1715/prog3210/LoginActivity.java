@@ -16,11 +16,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btnSubmit;
     private User user;
     private AppDatabase database;
+    UserSessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        session = new UserSessionManager(getApplicationContext());
+
+        if(session.isUserLoggedIn()){
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+
+            //Navigate to Main activity and stop the login activity
+            startActivity(mainActivityIntent);
+            this.finish();
+            return;
+        }
         database = AppDatabase.getDatabase(getApplicationContext());
 
         // cleanup for testing some initial data
@@ -28,9 +39,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // add some data
         List<User> users = database.userDao().getAllUser();
         if (users.size()==0) {
-            database.userDao().addUser(new User(1, "doug", "password"));
-            database.userDao().addUser(new User(2, "notDoug", "initial"));
-            database.userDao().addUser(new User(3, "Test 3", "initial"));
+            database.userDao().addUser(new User("doug", "password"));
+            database.userDao().addUser(new User("notDoug", "initial"));
+            database.userDao().addUser(new User("Test 3", "initial"));
         }
 
         txtUserName = (EditText) findViewById(R.id.txtUserName);
@@ -50,6 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int memberId = database.userDao().loginUser(username, password);
         if (memberId != 0){
             user = database.userDao().getUser(memberId);
+            session.createUserLoginSession(user);
             //Navigate to Main activity and stop the login activity
             startActivity(mainActivityIntent);
             this.finish();

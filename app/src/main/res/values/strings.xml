@@ -16,4 +16,7 @@
     <string name="alphabetize">Alphabetize!</string>
     <string name="manipulate">Manipulate!</string>
     <string name="capitalize">Capitalize?</string>
+    <string name="note_text_hint">Type your note here...</string>
+    <string name="note_save">Save Note</string>
+    <string name="logout">Logout</string>
 </resources>

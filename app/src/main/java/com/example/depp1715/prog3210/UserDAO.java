@@ -9,7 +9,6 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
-
 import java.util.List;
 
 
@@ -30,6 +29,9 @@ public interface UserDAO {
 
     @Query("delete from user")
     void removeAllUsers();
+
+    @Query("delete from user where id = :userId")
+    void removeUser(long userId);
 
     @Query("select id from user where username = :username and password = :password")
     public int loginUser(String username, String password);
