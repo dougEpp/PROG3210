@@ -23,11 +23,21 @@ public class LoginListActivity extends AppCompatActivity {
         List<LoginLog> logins = database.loginLogDao().getLogins();
         String[] loginsArray = new String[logins.size()];
         for (int i = 0; i < logins.size(); i++) {
-            loginsArray[i] = logins.get(i).dateLoggedIn + ": " + database.userDao().getUser(Integer.parseInt(session.getUserDetails().get(UserSessionManager.KEY_ID))).username;
+            loginsArray[i] = formatDateString(logins.get(i).dateLoggedIn) + ": " + database.userDao().getUser(logins.get(i).userId).username;
         }
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, loginsArray);
         ListView listView = (ListView) findViewById(R.id.lblLoginsList);
         listView.setAdapter(adapter);
+    }
+    public String formatDateString(String dateString){
+        String tempDateString = dateString;
+        dateString = dateString.substring(0, 4) + "/";
+        dateString += tempDateString.substring(4, 6) + "/";
+        dateString += tempDateString.substring(6, 8) + " ";
+        dateString += tempDateString.substring(9, 11) + ":";
+        dateString += tempDateString.substring(11, 13) + ":";
+        dateString += tempDateString.substring(13, 15);
+        return dateString;
     }
 }
