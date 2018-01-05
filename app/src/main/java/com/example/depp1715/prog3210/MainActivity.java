@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         gridview.setNumColumns(numColumns);
 
         gridview.setOnItemClickListener(this);
+
+        Intent audioServiceIntent = new Intent(this, AudioIntentService.class);
+        startService(audioServiceIntent);
     }
 
     @Override

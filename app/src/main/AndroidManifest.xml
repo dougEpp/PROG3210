@@ -30,7 +30,14 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".NotesListActivity" />
         <activity android:name=".TipCalcActivity" />
-        <activity android:name=".LoginListActivity"></activity>
+        <activity android:name=".LoginListActivity" />
+        <activity
+            android:name=".EditNoteActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service
+            android:name=".AudioIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
