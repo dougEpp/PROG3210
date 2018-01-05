@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.depp1715.prog3210">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,7 +40,9 @@
 
         <service
             android:name=".AudioIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".WebImageActivity"></activity>
     </application>
 
 </manifest>

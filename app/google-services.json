@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "321783659866",
+    "firebase_url": "https://prog3210-b15d8.firebaseio.com",
+    "project_id": "prog3210-b15d8",
+    "storage_bucket": "prog3210-b15d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321783659866:android:5bc829294f1f61f9",
+        "android_client_info": {
+          "package_name": "com.example.depp1715.prog3210"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321783659866-hv2h9lme81d8m60hkjpbuc1kcvjuho02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB60UPAFA0ZRm6N_3f_UwtozWT-x9Akfkc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

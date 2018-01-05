@@ -32,4 +32,21 @@
     <string name="amount_default">25.00</string>
     <string name="bill_amount_label">Bill Amount:</string>
     <string name="note_delete">Delete Note</string>
+
+    <string name="new_note_notification_title_template">New note: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="new_note_notification_placeholder_text_template">You said %1$s and lorem ipsum
+        dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel
+        semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
+
+    <string name="action_share">Share</string>
+    <string name="action_reply">Reply</string>
+    <string name="contact">Contact</string>
+    <string name="cute_pic">Click to see a cute picture!</string>
 </resources>
